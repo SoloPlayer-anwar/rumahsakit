@@ -18,6 +18,12 @@ class CreateSuppliesTable extends Migration
             $table->string('name_toko')->nullable();
             $table->string('phone')->nullable();
             $table->text('alamat')->nullable();
+            $table->string('name_barang')->nullable();
+            $table->text('photo_product')->nullable();
+            $table->integer('quantity')->nullable();
+            $table->integer('harga')->nullable();
+            $table->integer('total_harga')->nullable();
+            $table->text('photo_barcode')->nullable();
             $table->timestamps();
         });
     }

@@ -43,9 +43,3 @@ Route::get('getSupply', [SupplyController::class, 'getSupply']);
 Route::post('updateSupply/{id}', [SupplyController::class, 'updateSupply']);
 Route::post('deleteSupply/{id}', [SupplyController::class, 'deleteSupply']);
 
-
-// Sistem HeadRoom & Teknisi
-Route::post('createSistem', [SistemController::class, 'createSistem']);
-Route::get('getSistem', [SistemController::class, 'getSistem']);
-Route::post('updateSistem/{id}', [SistemController::class, 'updateSistem']);
-Route::post('deleteSistem/{id}', [SistemController::class, 'deleteSistem']);

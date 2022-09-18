@@ -18,7 +18,13 @@ class Supply extends Model
     protected $fillable = [
         'name_toko',
         'phone',
-        'alamat'
+        'alamat',
+        'name_barang',
+        'photo_product',
+        'quantity',
+        'harga',
+        'total_harga',
+        'photo_barcode',
     ];
 
 
@@ -30,5 +36,15 @@ class Supply extends Model
     public function getUpdatedAtAttribute($value)
     {
         return Carbon::parse($value)->timestamp;
+    }
+
+    public function getPhotoProductAttribute($value)
+    {
+        return env('ASSET_URL'). "/uploads/".$value;
+    }
+
+    public function getPhotoBarcodeAttribute($value)
+    {
+        return env('ASSET_URL'). "/uploads/".$value;
     }
 }
