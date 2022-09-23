@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\KeluhanController;
+use App\Http\Controllers\API\PerbaikanController;
 use App\Http\Controllers\API\RoomController;
 use App\Http\Controllers\API\SistemController;
 use App\Http\Controllers\API\SupplyController;
@@ -42,4 +44,16 @@ Route::post('createSupply', [SupplyController::class, 'createSupply']);
 Route::get('getSupply', [SupplyController::class, 'getSupply']);
 Route::post('updateSupply/{id}', [SupplyController::class, 'updateSupply']);
 Route::post('deleteSupply/{id}', [SupplyController::class, 'deleteSupply']);
+
+// Keluhan
+Route::post('keluhanCreate', [KeluhanController::class, 'createKeluhan']);
+Route::get('getKeluhan', [KeluhanController::class, 'getKeluhan']);
+Route::post('updateKeluhan/{id}', [KeluhanController::class, 'updateKeluhan']);
+Route::post('deleteKeluhan/{id}', [KeluhanController::class, 'deleteKeluhan']);
+
+// Perbaikan
+Route::post('createPerbaikan', [PerbaikanController::class, 'createPerbaikan']);
+Route::get('getPerbaikan', [PerbaikanController::class, 'getPerbaikan']);
+Route::post('updatePerbaikan/{id}', [PerbaikanController::class, 'updatePerbaikan']);
+Route::post('deletePerbaikan/{id}', [PerbaikanController::class, 'deletePerbaikan']);
 
