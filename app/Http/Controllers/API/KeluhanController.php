@@ -19,7 +19,8 @@ class KeluhanController extends Controller
             'photo_kendala' => 'sometimes|image|mimes:png,jpeg,jpg,gif,svg|max:5048',
             'status' => '',
             'user_id' => 'sometimes|exists:users,id',
-            'name_teknisi' => 'sometimes|nullable|exists:perbaikans,id'
+            'name_teknisi' => 'sometimes|nullable|exists:perbaikans,id',
+            'token' => 'sometimes|string'
         ]);
 
         $keluhan = Keluhan::create([
@@ -29,7 +30,8 @@ class KeluhanController extends Controller
             'photo_kendala' => $request->photo_kendala,
             'status' => $request->status,
             'user_id' => $request->user_id,
-            'name_teknisi' => $request->name_teknisi
+            'name_teknisi' => $request->name_teknisi,
+            'token' => $request->token
         ]);
 
 

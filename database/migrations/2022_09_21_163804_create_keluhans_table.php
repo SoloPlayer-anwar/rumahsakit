@@ -22,6 +22,7 @@ class CreateKeluhansTable extends Migration
             $table->enum('status', ['waiting', 'proses', 'selesai'])->default('waiting');
             $table->bigInteger('user_id')->nullable();
             $table->string('name_teknisi')->nullable();
+            $table->text('token')->nullable();
             $table->timestamps();
         });
     }
