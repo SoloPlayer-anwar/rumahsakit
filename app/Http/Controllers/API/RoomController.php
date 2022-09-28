@@ -16,13 +16,15 @@ class RoomController extends Controller
         $request->validate([
             'kode_room' => 'required|integer',
             'name_room' => 'required|string|max:255',
-            'photo_room' => 'sometimes|image|mimes:png,jpeg,jpg,gif,svg|max:5048'
+            'photo_room' => 'sometimes|image|mimes:png,jpeg,jpg,gif,svg|max:5048',
+            'lantai' => 'sometimes|string|max:255'
         ]);
 
         $room = Room::create([
             'kode_room' => $request->kode_room,
             'name_room' => $request->name_room,
-            'photo_room' => $request->photo_room
+            'photo_room' => $request->photo_room,
+            'lantai' => $request->lantai
         ]);
 
         if($request->file('photo_room')->isValid()) {

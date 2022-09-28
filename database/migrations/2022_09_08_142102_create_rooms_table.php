@@ -18,6 +18,7 @@ class CreateRoomsTable extends Migration
             $table->integer('kode_room')->nullable();
             $table->string('name_room')->nullable();
             $table->text('photo_room')->nullable();
+            $table->string('lantai')->nullable();
             $table->timestamps();
         });
     }

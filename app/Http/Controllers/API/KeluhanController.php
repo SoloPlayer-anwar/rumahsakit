@@ -20,7 +20,9 @@ class KeluhanController extends Controller
             'status' => '',
             'user_id' => 'sometimes|exists:users,id',
             'name_teknisi' => 'sometimes|nullable|exists:perbaikans,id',
-            'token' => 'sometimes|string'
+            'token' => 'sometimes|string',
+            'phone_teknisi' => 'sometimes|string|max:255',
+            'photo_teknisi' => 'sometimes|string'
         ]);
 
         $keluhan = Keluhan::create([
@@ -31,7 +33,9 @@ class KeluhanController extends Controller
             'status' => $request->status,
             'user_id' => $request->user_id,
             'name_teknisi' => $request->name_teknisi,
-            'token' => $request->token
+            'token' => $request->token,
+            'phone_teknisi' => $request->phone_teknisi,
+            'photo_teknisi' => $request->photo_teknisi
         ]);
 
 

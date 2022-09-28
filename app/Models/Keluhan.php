@@ -23,7 +23,9 @@ class Keluhan extends Model
         'status',
         'user_id',
         'name_teknisi',
-        'token'
+        'token',
+        'photo_teknisi',
+        'phone_teknisi'
     ];
 
     public function room() {

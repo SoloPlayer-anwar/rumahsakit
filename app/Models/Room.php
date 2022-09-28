@@ -18,7 +18,8 @@ class Room extends Model
     protected $fillable = [
         'kode_room',
         'name_room',
-        'photo_room'
+        'photo_room',
+        'lantai'
     ];
 
 
