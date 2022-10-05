@@ -23,6 +23,8 @@ class CreatePerbaikansTable extends Migration
             $table->bigInteger('keluhan_id')->nullable();
             $table->double('rating')->nullable();
             $table->text('komentar')->nullable();
+            $table->integer('quantity')->nullable();
+            $table->integer('total')->nullable();
             $table->timestamps();
         });
     }

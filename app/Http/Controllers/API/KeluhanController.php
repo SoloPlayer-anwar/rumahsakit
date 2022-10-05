@@ -19,7 +19,7 @@ class KeluhanController extends Controller
             'photo_kendala' => 'sometimes|image|mimes:png,jpeg,jpg,gif,svg|max:5048',
             'status' => '',
             'user_id' => 'sometimes|exists:users,id',
-            'name_teknisi' => 'sometimes|nullable|exists:perbaikans,id',
+            'name_teknisi' => 'sometimes|string|max:255',
             'token' => 'sometimes|string',
             'phone_teknisi' => 'sometimes|string|max:255',
             'photo_teknisi' => 'sometimes|string'
@@ -38,7 +38,6 @@ class KeluhanController extends Controller
             'photo_teknisi' => $request->photo_teknisi
         ]);
 
-
         $keluhan = Keluhan::with(['room', 'user'])->find($keluhan->id);
 
         if($request->file('photo_kendala')->isValid()) {
@@ -49,6 +48,7 @@ class KeluhanController extends Controller
             $request->file('photo_kendala')->move($kendalaPath, $kendalaUpload);
             $keluhan['photo_kendala'] = $kendalaUpload;
         }
+
 
         try {
             $keluhan->save();
@@ -71,6 +71,7 @@ class KeluhanController extends Controller
         $id = $request->input('id');
         $status = $request->input('status');
         $name_teknisi = $request->input('name_teknisi');
+        $tanggal = $request->input('tanggal');
 
         if($id) {
             $keluhan = Keluhan::with(['room', 'user'])->find($id);
@@ -100,6 +101,11 @@ class KeluhanController extends Controller
         if($name_teknisi) {
 
             $keluhan->where('name_teknisi', 'like', '%' . $name_teknisi . '%');
+        }
+
+        if($tanggal) {
+
+            $keluhan->where('tanggal', 'like', '%' . $tanggal . '%');
         }
 
         return ResponseFormmater::success(

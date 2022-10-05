@@ -20,7 +20,9 @@ class PerbaikanController extends Controller
             'user_id' => 'sometimes|exists:users,id',
             'keluhan_id' => 'sometimes|exists:keluhans,id',
             'rating' => 'sometimes|integer',
-            'komentar' => 'sometimes|string'
+            'komentar' => 'sometimes|string',
+            'quantity' => 'sometimes|integer',
+            'total' => 'sometimes|integer'
         ]);
 
         $perbaikan = Perbaikan::create([
@@ -32,6 +34,8 @@ class PerbaikanController extends Controller
             'keluhan_id' => $request->keluhan_id,
             'rating' => $request->rating,
             'komentar' => $request->komentar,
+            'quantity' => $request->quantity,
+            'total' => $request->total
         ]);
 
         $perbaikan = Perbaikan::with(['supply', 'user', 'keluhan'])->find($perbaikan->id);

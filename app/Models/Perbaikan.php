@@ -22,7 +22,9 @@ class Perbaikan extends Model
         'user_id',
         'keluhan_id',
         'rating',
-        'komentar'
+        'komentar',
+        'quantity',
+        'total'
     ];
 
     public function supply() {
