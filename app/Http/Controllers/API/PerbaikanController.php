@@ -70,6 +70,7 @@ class PerbaikanController extends Controller
         $user_id = $request->input('user_id');
         $supply_id = $request->input('supply_id');
         $keluhan_id = $request->input('keluhan_id');
+        $tanggal = $request->input('tanggal');
 
         if($id) {
 
@@ -94,17 +95,21 @@ class PerbaikanController extends Controller
 
         if($user_id)
         {
-            $perbaikan->where('user_id', 'like', '%' . $user_id . '%');
+            $perbaikan->where('user_id',$user_id);
         }
 
         if($supply_id)
         {
-            $perbaikan->where('supply_id', 'like', '%' . $supply_id . '%');
+            $perbaikan->where('supply_id',$supply_id);
         }
 
         if($keluhan_id)
         {
-            $perbaikan->where('keluhan_id', 'like', '%' .$keluhan_id . '%');
+            $perbaikan->where('keluhan_id',$keluhan_id);
+        }
+
+        if($tanggal) {
+            $perbaikan->where('tanggal', 'like', '%' . $tanggal . '%');
         }
 
         return ResponseFormmater::success(

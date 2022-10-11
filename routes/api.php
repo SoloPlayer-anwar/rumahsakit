@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\KeluhanController;
 use App\Http\Controllers\API\PerbaikanController;
+use App\Http\Controllers\API\RatingController;
 use App\Http\Controllers\API\RoomController;
 use App\Http\Controllers\API\SistemController;
 use App\Http\Controllers\API\SupplyController;
@@ -56,4 +57,13 @@ Route::post('createPerbaikan', [PerbaikanController::class, 'createPerbaikan']);
 Route::get('getPerbaikan', [PerbaikanController::class, 'getPerbaikan']);
 Route::post('updatePerbaikan/{id}', [PerbaikanController::class, 'updatePerbaikan']);
 Route::post('deletePerbaikan/{id}', [PerbaikanController::class, 'deletePerbaikan']);
+
+// RATING
+Route::post('createRating', [RatingController::class, 'createRate']);
+Route::post('updateRating/{id}', [RatingController::class, 'updateRate']);
+Route::post('deleteRating/{id}', [RatingController::class, 'deleteRate']);
+Route::get('getRating', [RatingController::class, 'getAllRate']);
+
+// Pembiyaaan
+
 
