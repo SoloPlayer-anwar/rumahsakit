@@ -19,10 +19,10 @@ class PerbaikanController extends Controller
             'supply_id' => 'sometimes|exists:supplies,id',
             'user_id' => 'sometimes|exists:users,id',
             'keluhan_id' => 'sometimes|exists:keluhans,id',
-            'rating' => 'sometimes|integer',
-            'komentar' => 'sometimes|string',
-            'quantity' => 'sometimes|integer',
-            'total' => 'sometimes|integer'
+            'rating' => '',
+            'komentar' => '',
+            'quantity' => '',
+            'total' => ''
         ]);
 
         $perbaikan = Perbaikan::create([

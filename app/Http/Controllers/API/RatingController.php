@@ -14,18 +14,18 @@ class RatingController extends Controller
     public function createRate(Request $request)
     {
         $request->validate([
-            'name_teknisi' => 'required|string|max:255',
-            'phone_teknisi' => 'required|string|max:255',
+            'name_teknisi' => 'sometimes|string|max:255',
+            'phone_teknisi' => 'sometimes|string|max:255',
             'email_teknisi' => 'sometimes|string|max:255',
-            'rate' => 'required|integer',
-            'komentar' => 'required|string',
-            'photo_teknisi' => 'required|string',
-            'nilai' => 'sometimes|integer',
+            'rate' => '',
+            'komentar' => 'sometimes|string',
+            'photo_teknisi' => 'sometimes|string',
+            'nilai' => '',
             'user_id' => 'sometimes|exists:users,id',
             'perbaikan_id' => 'sometimes|exists:perbaikans,id',
             'room_id' => 'sometimes|exists:rooms,id',
             'keluhan_id' => 'sometimes|exists:keluhans,id',
-            'tanggal' => 'required|string|max:255'
+            'tanggal' => 'sometimes|string|max:255'
         ]);
 
         $rating = Rating::create([
