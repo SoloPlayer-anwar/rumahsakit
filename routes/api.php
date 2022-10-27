@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\AbsensiController;
+use App\Http\Controllers\API\JadwalController;
 use App\Http\Controllers\API\KeluhanController;
 use App\Http\Controllers\API\PerbaikanController;
 use App\Http\Controllers\API\RatingController;
@@ -64,6 +66,15 @@ Route::post('updateRating/{id}', [RatingController::class, 'updateRate']);
 Route::post('deleteRating/{id}', [RatingController::class, 'deleteRate']);
 Route::get('getRating', [RatingController::class, 'getAllRate']);
 
-// Pembiyaaan
+// Absensi
+Route::post('createAbsensi', [AbsensiController::class, 'addAbsensi']);
+Route::get('getAbsensi', [AbsensiController::class, 'getAbsensi']);
+Route::post('updateAbsensi/{id}', [AbsensiController::class, 'updateAbsensi']);
+Route::post('deleteAbsensi/{id}', [AbsensiController::class, 'deleteAbsensi']);
+
+// Jadwal
+Route::get('getJadwal', [JadwalController::class, 'getJadwal']);
+Route::post('updateJadwal/{id}', [JadwalController::class, 'updateJadwal']);
+Route::post('deleteJadwal/{id}', [JadwalController::class, 'deleteJadwal']);
 
 
