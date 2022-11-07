@@ -89,7 +89,7 @@ class RatingController extends Controller
             }
         }
 
-        $rating = Rating::with(['room', 'user', 'keluhan_id', 'perbaikan_id']);
+        $rating = Rating::with(['room', 'user', 'keluhan', 'perbaikan']);
 
         if($name_teknisi)
         {

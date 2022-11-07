@@ -74,6 +74,7 @@ Route::post('deleteAbsensi/{id}', [AbsensiController::class, 'deleteAbsensi']);
 
 // Jadwal
 Route::get('getJadwal', [JadwalController::class, 'getJadwal']);
+Route::post('addJadwal', [JadwalController::class, 'addJadwal']);
 Route::post('updateJadwal/{id}', [JadwalController::class, 'updateJadwal']);
 Route::post('deleteJadwal/{id}', [JadwalController::class, 'deleteJadwal']);
 
