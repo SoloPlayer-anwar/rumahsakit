@@ -59,6 +59,7 @@ Route::post('createPerbaikan', [PerbaikanController::class, 'createPerbaikan']);
 Route::get('getPerbaikan', [PerbaikanController::class, 'getPerbaikan']);
 Route::post('updatePerbaikan/{id}', [PerbaikanController::class, 'updatePerbaikan']);
 Route::post('deletePerbaikan/{id}', [PerbaikanController::class, 'deletePerbaikan']);
+Route::post('generatePerbaikanPdf/{id}', [PerbaikanController::class, 'generatePerbaikanPdf']);
 
 // RATING
 Route::post('createRating', [RatingController::class, 'createRate']);

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\API;
 use App\Helpers\ResponseFormmater;
 use App\Http\Controllers\Controller;
 use App\Models\Perbaikan;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PerbaikanController extends Controller
 {
@@ -151,6 +153,39 @@ class PerbaikanController extends Controller
         return ResponseFormmater::success(
             $perbaikan,
             'Data Perbaikan Berhasil di delete'
+        );
+    }
+
+    public function generatePerbaikanPdf(Request $request, $id)
+    {
+        $perbaikan = Perbaikan::with(['supply', 'user', 'keluhan'])->find($id);
+
+        if($perbaikan) {
+
+            
+            $title = 'public/pdf/perbaikan/'.'perbaikan-'.strtotime('now').'.pdf';
+            $qrcode = base64_encode(QrCode::format('png')->size(100)->errorCorrection('H')->generate(asset(Storage::url($title))));
+            
+            $images = [
+                'qrcode'=>$qrcode,
+                'logo'=> base64_encode(file_get_contents(public_path('assets/img/logo.png'))),
+                'logo-rs'=> base64_encode(file_get_contents(public_path('assets/img/rs.png'))),
+            ];
+            // return view('pdf.perbaikan', compact(['title','perbaikan','images']));
+            $pdf = Pdf::loadView('pdf.perbaikan', compact(['title','perbaikan','images']));
+            
+            Storage::put($title, $pdf->output());
+            
+            return ResponseFormmater::success(
+                asset(Storage::url($title)),
+                'Data Perbaikan berhasil dibuat'
+            );
+        }
+        
+        return ResponseFormmater::error(
+            null,
+            'Data perbaikan gagal diambil',
+            404
         );
     }
 }
