@@ -168,8 +168,8 @@ class PerbaikanController extends Controller
             
             $images = [
                 'qrcode'=>$qrcode,
-                'logo'=> base64_encode(file_get_contents(public_path('assets/img/logo.png'))),
-                'logo-rs'=> base64_encode(file_get_contents(public_path('assets/img/rs.png'))),
+                'logo'=> base64_encode(file_get_contents(url('assets/img/logo.png'))),
+                'logo-rs'=> base64_encode(file_get_contents(url('assets/img/rs.png'))),
             ];
             // return view('pdf.perbaikan', compact(['title','perbaikan','images']));
             $pdf = Pdf::loadView('pdf.perbaikan', compact(['title','perbaikan','images']));
